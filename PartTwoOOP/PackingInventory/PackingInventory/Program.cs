@@ -1,6 +1,7 @@
 ﻿Pack pack = new Pack(10, 25, 25);
 while (true)
 {
+    Console.WriteLine(pack);
     Console.WriteLine($"Your pack currently has {pack.NumberOfItems}/{pack.MaxItems} items, {pack.CurrentWeight}/{pack.MaxWeight} weight, " +
         $"and {pack.CurrentVol}/{pack.MaxVol} volume");
 

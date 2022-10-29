@@ -18,14 +18,27 @@
 
     public bool Add(InventoryItem item)
     {
-        if(NumberOfItems >= MaxItems) return false;
-        if(CurrentWeight + item.Weight > MaxWeight) return false;
-        if(CurrentVol + item.Volume > MaxVol) return false;
+        if (NumberOfItems >= MaxItems) return false;
+        if (CurrentWeight + item.Weight > MaxWeight) return false;
+        if (CurrentVol + item.Volume > MaxVol) return false;
 
         _items[NumberOfItems] = item;
         NumberOfItems++;
         CurrentVol = CurrentVol + item.Volume;
         CurrentWeight = CurrentWeight + item.Weight;
         return true;
+    }
+    public override string ToString()
+    {
+        string packHas = "Pack containing ";
+        if (NumberOfItems == 0) packHas += "Nothing";
+
+        for (int itemNumber = 0; itemNumber < NumberOfItems; itemNumber++)
+        {
+            packHas += _items[itemNumber].ToString() + ", ";
+
+        }
+
+        return packHas;
     }
 }
